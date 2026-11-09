@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Bienvenue</h2>
+        <p>Connecté en tant que : <b th:text="${#authentication.name}">user</b></p>
+        <p>Rôles : <b th:text="${#authentication.authorities}">[ROLE_USER]</b></p>
+        <p><a th:href="@{/user/dashboard}">Espace Utilisateur</a></p>
+        <p><a th:href="@{/admin/dashboard}">Espace Administrateur</a></p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Se déconnecter</button>
+        </form>
+    </div>
+</body>
+</html>
